@@ -71,7 +71,7 @@ export default function ComplaintsPage() {
     return <span className={cn('badge', styles[priority] || '')}>{priority}</span>;
   };
 
-  const columns = [
+  const columns: any[] = [
     { key: 'ticket_number', label: 'Ticket', render: (_: unknown, row: Complaint) => <span style={{ fontFamily: 'monospace', fontSize: 12, color: '#f59e0b' }}>{row.ticket_number}</span> },
     { key: 'customer', label: 'Customer', render: (_: unknown, row: Complaint & { customer?: { full_name: string; phone: string } }) => <div><p style={{ fontSize: 13, fontWeight: 600 }}>{row.customer?.full_name || '—'}</p><p style={{ fontSize: 11, color: 'var(--text-muted)' }}>{row.customer?.phone}</p></div> },
     { key: 'subject', label: 'Subject', render: (v: unknown) => <span style={{ fontSize: 13, maxWidth: 200, display: 'block', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{String(v)}</span> },

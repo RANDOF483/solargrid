@@ -68,7 +68,7 @@ export default function MetersPage() {
     }
   };
 
-  const columns = [
+  const columns: any[] = [
     { key: 'meter_number', label: 'Meter #', render: (_: unknown, row: SmartMeter) => <span style={{ fontFamily: 'monospace', fontSize: 12, color: '#60a5fa' }}>{row.meter_number}</span> },
     { key: 'serial_number', label: 'Serial #', render: (_: unknown, row: SmartMeter) => <span style={{ fontFamily: 'monospace', fontSize: 11, color: 'var(--text-muted)' }}>{row.serial_number}</span> },
     { key: 'customer', label: 'Customer', render: (_: unknown, row: SmartMeter & { customer?: { full_name: string } }) => row.customer ? <span style={{ fontSize: 13 }}>{row.customer.full_name}</span> : <span style={{ color: 'var(--text-muted)', fontSize: 13 }}>Unassigned</span> },

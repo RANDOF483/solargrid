@@ -43,7 +43,7 @@ function SkeletonRow({ cols }: { cols: number }) {
   );
 }
 
-export default function DataTable<T extends Record<string, unknown>>({
+export default function DataTable<T extends any>({
   columns,
   data,
   loading = false,

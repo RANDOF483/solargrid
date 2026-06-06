@@ -64,7 +64,7 @@ export default function BillsPage() {
     await fetchBills();
   };
 
-  const columns = [
+  const columns: any[] = [
     { key: 'bill_number', label: 'Bill #', render: (_: unknown, row: Bill) => <span style={{ fontFamily: 'monospace', fontSize: 12, color: '#f59e0b' }}>{row.bill_number}</span> },
     { key: 'customer', label: 'Customer', render: (_: unknown, row: Bill & { customer?: { full_name: string; customer_number: string } }) => <div><p style={{ fontSize: 13, fontWeight: 600 }}>{row.customer?.full_name}</p><p style={{ fontSize: 11, color: 'var(--text-muted)' }}>{row.customer?.customer_number}</p></div> },
     { key: 'consumption_kwh', label: 'Consumption', render: (v: unknown) => <span style={{ fontSize: 13, fontWeight: 600 }}>{Number(v).toFixed(2)} kWh</span> },

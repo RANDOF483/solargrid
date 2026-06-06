@@ -114,7 +114,7 @@ export default function CustomersPage() {
     }
   };
 
-  const columns = [
+  const columns: any[] = [
     { key: 'customer_number', label: 'Account #', render: (_: unknown, row: Customer) => <span style={{ fontFamily: 'monospace', fontSize: 12, color: '#f59e0b' }}>{row.customer_number}</span> },
     { key: 'full_name', label: 'Customer', render: (_: unknown, row: Customer) => (
       <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>

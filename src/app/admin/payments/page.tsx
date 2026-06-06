@@ -63,7 +63,7 @@ export default function AdminPayments() {
     } catch { toast.error('Error'); }
   };
 
-  const columns = [
+  const columns: any[] = [
     { key: 'payment_reference', label: 'Reference', render: (_: unknown, row: Payment) => <span style={{ fontFamily: 'monospace', fontSize: 12, color: '#f59e0b' }}>{row.payment_reference}</span> },
     { key: 'customer', label: 'Customer', render: (_: unknown, row: Payment & { customer?: { full_name: string; customer_number: string } }) => <div><p style={{ fontSize: 13, fontWeight: 600 }}>{row.customer?.full_name}</p><p style={{ fontSize: 11, color: 'var(--text-muted)' }}>{row.customer?.customer_number}</p></div> },
     { key: 'amount', label: 'Amount', render: (v: unknown) => <span style={{ fontSize: 14, fontWeight: 700, color: '#34d399' }}>{formatCurrency(Number(v))}</span> },
