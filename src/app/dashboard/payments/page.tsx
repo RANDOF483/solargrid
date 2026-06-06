@@ -113,7 +113,7 @@ export default function CustomerPayments() {
               <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
                 {payments.map((p) => (
                   <div key={p.id} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '12px 16px', borderRadius: 10, background: 'rgba(255,255,255,0.03)', border: '1px solid var(--border-color)' }}>
-                    <div style={{ display: 'flex', items: 'center', gap: 12 }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
                       <CreditCard size={18} style={{ color: '#60a5fa', flexShrink: 0 }} />
                       <div>
                         <p style={{ fontSize: 13, fontWeight: 600, color: 'var(--text-primary)' }}>{p.payment_reference}</p>

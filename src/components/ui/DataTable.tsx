@@ -4,15 +4,15 @@ import { cn, getStatusColor } from '@/lib/utils';
 import { ChevronLeft, ChevronRight, Search } from 'lucide-react';
 import { useState } from 'react';
 
-interface Column<T> {
+export interface Column<T = any> {
   key: keyof T | string;
   label: string;
-  render?: (value: unknown, row: T) => React.ReactNode;
+  render?: (value: any, row: T) => React.ReactNode;
   sortable?: boolean;
   className?: string;
 }
 
-interface DataTableProps<T> {
+export interface DataTableProps<T = any> {
   columns: Column<T>[];
   data: T[];
   loading?: boolean;
@@ -43,7 +43,7 @@ function SkeletonRow({ cols }: { cols: number }) {
   );
 }
 
-export default function DataTable<T extends any>({
+export default function DataTable<T extends Record<string, any>>({
   columns,
   data,
   loading = false,

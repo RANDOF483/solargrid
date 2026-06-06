@@ -40,7 +40,7 @@ export default function SitesPage() {
       if (editing) {
         await supabase.from('microgrid_sites').update(payload).eq('id', editing.id);
         toast.success('Site Updated');
-        setSites(prev => prev.map(s => s.id === editing.id ? { ...s, ...payload } : s));
+        setSites(prev => prev.map(s => s.id === editing.id ? { ...s, ...payload } as MicrogridSite : s));
       } else {
         const { data } = await supabase.from('microgrid_sites').insert(payload).select().single();
         toast.success('Site Created');
@@ -55,9 +55,9 @@ export default function SitesPage() {
   const columns: any[] = [
     { key: 'name', label: 'Site Name', render: (_: unknown, row: MicrogridSite) => <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}><div style={{ width: 36, height: 36, borderRadius: 10, background: 'rgba(245,158,11,0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><MapPin size={18} style={{ color: '#f59e0b' }} /></div><div><p style={{ fontSize: 13, fontWeight: 700 }}>{row.name}</p><p style={{ fontSize: 11, color: 'var(--text-muted)' }}>{row.location}</p></div></div> },
     { key: 'region', label: 'Region' },
-    { key: 'capacity_kw', label: 'Capacity', render: (v: unknown) => <span style={{ fontSize: 13, fontWeight: 600 }}>{v} kW</span> },
-    { key: 'panel_count', label: 'Panels', render: (v: unknown) => <span>{v} panels</span> },
-    { key: 'battery_capacity_kwh', label: 'Battery', render: (v: unknown) => <span>{v} kWh</span> },
+    { key: 'capacity_kw', label: 'Capacity', render: (v: any) => <span style={{ fontSize: 13, fontWeight: 600 }}>{String(v)} kW</span> },
+    { key: 'panel_count', label: 'Panels', render: (v: any) => <span>{String(v)} panels</span> },
+    { key: 'battery_capacity_kwh', label: 'Battery', render: (v: any) => <span>{String(v)} kWh</span> },
     { key: 'status', label: 'Status' },
   ];
 
